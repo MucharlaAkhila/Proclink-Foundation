@@ -1,4 +1,4 @@
-// Ex4: Top 2 movie titles
+// Ex4: Top 1 movie titles
 
 const movies = [
     { title: "Inception", ratings: [5, 4, 5, 4, 5] },
@@ -10,13 +10,29 @@ const movies = [
   
   // Expected Output:  The Dark Knight and Inception
 
-
+  let a =[];
   for(var i=0;i<movies.length;i++){
     sum =0;
     for(var j=0;j<movies[i].ratings.length;j++){
     sum+=movies[i].ratings[j];
-    
-    }console.log(sum);
-
+    }
+    var avg = sum/5;var list = {title: movies[i].title, avg: sum/5};
+    a.push(list);
+  }
+//console.log(a);
+var max1= 0;
+  var max2=0;
+for(var k=0; k<a.length;k++){
+  if (a[k].avg > max1){
+    max2 = max1;
+    max1 = a[k].avg;
+  }  
+}
+var c=[];
+for(var b=0; b<a.length;b++){
+  if(a[b].avg>max2){
+    c.push(a[b].title);
 
   }
+}
+console.log(c);
