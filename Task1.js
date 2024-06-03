@@ -11,15 +11,23 @@ const cart = [
   //   Ex 1.1: Combine cart + newItems
 
   const newlist = [...cart,...newItems];
-  console.log(newlist);
+//   console.log(newlist);
   
   
-  // Ex 1.2: Find total of cart
-  var sum=0;
-  for (let i=0; i< newlist.length; i++) {
-    //console.log(newlist[i].price);
-   let product = newlist[i].price * newlist[i].quantity ;  
-     sum = sum + product;
+//   // Ex 1.2: Find total of cart
+//  var sum=0;
+//   for (let i=0; i< newlist.length; i++) {
+//     //console.log(newlist[i].price);
+//    let product = newlist[i].price * newlist[i].quantity ;  
+//      sum = sum + product;
+// }
+// console.log(sum);
+
+
+
+let total = 0;
+for(let {price, quantity} of newlist){
+  total+= price * quantity
 }
-console.log(sum);
+console.log(total);
   
