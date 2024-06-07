@@ -5,6 +5,7 @@
 - 'ctrl + /' -> comment
 - 'win + .' -> emojis
 - 'ctrl + click' -> To search files
+- 'ctrl + ` ' -> open / close terminal in vs code
 
 ### website for image compression
 
