@@ -177,3 +177,104 @@ LIMIT 2 OFFSET 2;
 ```
 
 ![Review - 1](image-10.png)
+
+## Exercise 6 — Tasks
+
+Find the domestic and international sales for each movie ✓
+
+```sql
+SELECT * FROM movies
+INNER JOIN Boxoffice
+ON Movies.Id = Boxoffice.Movie_id;
+```
+
+Show the sales numbers for each movie that did better internationally rather than domestically ✓
+
+```sql
+SELECT * FROM movies
+INNER JOIN Boxoffice
+ON Movies.Id = Boxoffice.Movie_id
+where Domestic_sales < International_sales;
+```
+
+List all the movies by their ratings in descending order ✓
+
+```sql
+SELECT Title,Rating FROM movies
+INNER JOIN Boxoffice
+ON Movies.Id = Boxoffice.Movie_id
+ORDER BY Rating DESC;
+```
+
+![Exercise - 6](image-15.png)
+
+## Exercise 7 — Tasks
+
+Find the list of all buildings that have employees ✓
+
+```sql
+SELECT Distinct Building FROM employees;
+```
+
+Find the list of all buildings and their capacity ✓
+
+```sql
+SELECT * FROM Buildings;
+```
+
+List all buildings and the distinct employee roles in each building (including empty buildings) ✓
+
+```sql
+SELECT DISTINCT Building_name, Role FROM Buildings
+OUTER LEFT JOIN Employees
+ON Buildings.Building_name = Employees.Building ;
+```
+
+![Exercise - 7](image-16.png)
+
+## Exercise 8 — Tasks
+
+Find the name and role of all employees who have not been assigned to a building ✓
+
+```sql
+SELECT Name,Role FROM employees
+Where Building is NULL;
+```
+
+Find the names of the buildings that hold no employees ✓
+
+```sql
+SELECT Building_name FROM Buildings
+Left join Employees
+ON Buildings.Building_name = Employees.Building
+Where Building is NULL;
+```
+
+![Exercise - 8](image-17.png)
+
+## Exercise 9 — Tasks
+
+List all movies and their combined sales in millions of dollars ✓
+
+```sql
+SELECT *,(Domestic_sales+International_sales)/1000000 AS Total_Sales FROM movies
+INNER Join Boxoffice
+ON Id = Movie_id;
+```
+
+List all movies and their ratings in percent ✓
+
+```sql
+SELECT Title,(Rating*10) AS Ratings_in_percent FROM movies
+INNER Join Boxoffice
+ON Id = Movie_id;
+```
+
+List all movies that were released on even number years ✓
+
+```sql
+SELECT Title FROM movies
+Where Year % 2 = 0 ;
+```
+
+![Exercise - 9](image-18.png)
