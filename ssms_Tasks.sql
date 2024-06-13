@@ -124,5 +124,15 @@ INSERT INTO customer (customer_id, cust_name, city, grade, salesman_id) VALUES
 -- Task 7
 -- Write a query to find the name and id of all salesmen who had more than one customer
 
+select salesman_id,count(salesman_id) from customer
+group by salesman_id 
+having count(salesman_id)>1
 
+select * from salesman
+where salesman_id in (5001,5002)
+
+select * from salesman
+where salesman_id in (select salesman_id from customer
+								group by salesman_id 
+								having count(salesman_id)>1)
 ----------------------------------------------------------------------------------------------------------------------------------
