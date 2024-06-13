@@ -278,3 +278,189 @@ Where Year % 2 = 0 ;
 ```
 
 ![Exercise - 9](image-18.png)
+
+## Exercise 10 — Tasks
+
+Find the longest time that an employee has been at the studio ✓
+
+```sql
+SELECT Max(	Years_employed),* FROM employees;
+```
+
+For each role, find the average number of years employed by employees in that role ✓
+
+```sql
+SELECT AVG(Years_employed),* FROM employees
+GROUP BY Role ;
+```
+
+Find the total number of employee years worked in each building ✓
+
+```sql
+SELECT SUM(Years_employed),* FROM employees
+GROUP BY Building ;
+```
+
+![Exercise - 10](image-19.png)
+
+## Exercise 11 — Tasks
+
+Find the number of Artists in the studio (without a HAVING clause) ✓
+
+```sql
+SELECT *,COUNT(Role) FROM employees
+where Role = "Artist";
+```
+
+Find the number of Employees of each role in the studio ✓
+
+```sql
+SELECT *,count(Role) FROM employees
+GROUP BY Role;
+```
+
+Find the total number of years employed by all Engineers ✓
+
+```sql
+SELECT *,Sum(Years_employed) FROM employees
+where Role = "Engineer";
+```
+
+![Exercise - 11](image-20.png)
+
+## Exercise 12 — Tasks
+
+Find the number of movies each director has directed ✓
+
+```sql
+SELECT *,Count(Title) FROM movies
+GROUP BY Director;
+```
+
+Find the total domestic and international sales that can be attributed to each director ✓
+
+```sql
+SELECT Director,SUM(Domestic_sales + International_sales) FROM movies
+Join Boxoffice
+ON Id = Movie_id
+GROUP BY Director;
+```
+
+![Exercise - 12](image-21.png)
+
+## Exercise 13 — Tasks
+
+Add the studio's new production, Toy Story 4 to the list of movies (you can use any director) ✓
+
+```sql
+INSERT INTO Movies
+VALUES (4,"Toy Story 4","John Lasseter",2024,100);
+```
+
+Toy Story 4 has been released to critical acclaim! It had a rating of 8.7, and made 340 million domestically and 270 million internationally. Add the record to the BoxOffice table. ✓
+
+```sql
+INSERT INTO Boxoffice
+VALUES (4 , 8.7 , 340000000 , 270000000);
+```
+
+![Exercise - 13](image-22.png)
+
+## Exercise 14 — Tasks
+
+The director for A Bug's Life is incorrect, it was actually directed by John Lasseter ✓
+
+```sql
+UPDATE Movies
+SET Director = "John Lasseter"
+Where Id=2;
+```
+
+The year that Toy Story 2 was released is incorrect, it was actually released in 1999 ✓
+
+```sql
+UPDATE Movies
+SET Year = "1999"
+Where Title = "Toy Story 2";
+```
+
+Both the title and director for Toy Story 8 is incorrect! The title should be "Toy Story 3" and it was directed by Lee Unkrich ✓
+
+```sql
+UPDATE Movies
+SET Title = "Toy Story 3",Director ="Lee Unkrich"
+Where Title = "Toy Story 8";
+```
+
+![Exercise - 14](image-23.png)
+
+## Exercise 15 — Tasks
+
+This database is getting too big, lets remove all movies that were released before 2005. ✓
+
+```sql
+Delete From Movies
+Where Year < 2005
+```
+
+Andrew Stanton has also left the studio, so please remove all movies directed by him.✓
+
+```sql
+Delete From Movies
+Where Director ="Andrew Stanton";
+```
+
+![Exercise - 15](image-24.png)
+
+## Exercise 16 — Tasks
+
+Create a new table named Database with the following columns:
+– Name A string (text) describing the name of the database  
+– Version A number (floating point) of the latest version of this database  
+– Download_count An integer count of the number of times this database was downloaded  
+This table has no constraints. ✓
+
+```sql
+CREATE TABLE Database (
+Name TEXT PRIMARY KEY,
+Version FLOAT,
+Download_count INTEGER
+);
+```
+
+![Exercise - 16](image-25.png)
+
+## Exercise 17 — Tasks
+
+Add a column named Aspect_ratio with a FLOAT data type to store the aspect-ratio each movie was released in. ✓
+
+```sql
+ALTER TABLE Movies
+ADD Aspect_ratio FLOAT;
+```
+
+Add another column named Language with a TEXT data type to store the language that the movie was released in. Ensure that the default for this language is English. ✓
+
+```sql
+ALTER TABLE Movies
+ADD Language TEXT
+DEFAULT English;
+```
+
+![Exercise - 17](image-26.png)
+
+## Exercise 18 — Tasks
+
+We've sadly reached the end of our lessons, lets clean up by removing the Movies table ✓
+
+```sql
+DROP TABLE Movies;
+```
+
+And drop the BoxOffice table as well ✓
+
+```sql
+DROP TABLE Boxoffice;
+```
+
+![Exercise - 18](image-27.png)
