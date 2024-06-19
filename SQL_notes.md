@@ -103,6 +103,7 @@ Every attribute in a table should depend on the key , the whole key.
 
   - Varchar
   - nvarchar (useful for other languages and special characters and symbols)
+  - instead of varchar(Text) use varchar(max)
 
 - Date
 
@@ -217,3 +218,51 @@ Select DatePart(month, GetDate())
 Select DatePart(day, GetDate())
 Select DatePart(year, GetDate())
 ```
+
+> Set operators
+
+- intersection (A n B)
+- union (A U B)
+- union all
+- Except (A-B)
+
+> Multi level Grouping
+
+```sql
+Select region,product_type,sum(sales_amount) from sales_data
+Group by region, product_type
+```
+
+> Multi level ordering
+
+```sql
+Select region,product_type,sum(sales_amount) from sales_data
+Group by region, product_type
+order by region,product_type desc
+```
+
+> Grouping sets
+
+```sql
+Select region,product_type,sum(sales_amount) from sales_data
+Group by GROUPING SETS(
+                        (region),
+                        (product_type),
+                        (region,product_type)
+                      )
+```
+
+> Rollup vs Cube
+
+- cube gives all the possible combinations, where as rollup gives limited combinations
+- Roll up : if `n` columns -> `n+1` combinations
+- Cube : if `n` columns -> `2^n` combinations
+
+![Rollup vs Cube](image-32.png)
+![Combinations in each case](image-33.png)
+
+> Ranking Functions
+
+- 1. Rank
+- 2. Dense_Rank
+- 3. Row_Number
