@@ -297,3 +297,10 @@ Group by GROUPING SETS(
 > Functions
 
 - returns a scalar value (string,value,int,table)
+
+> Indexing
+
+![alt text](image-44.png)
+
+- If the indexing is not done, then we need to search one by one . this process is known as `Table Scan`.
+- Default index which we have in database is called `Clussterred index`
