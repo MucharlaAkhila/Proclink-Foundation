@@ -266,3 +266,34 @@ Group by GROUPING SETS(
 - 1. Rank
 - 2. Dense_Rank
 - 3. Row_Number
+
+> Database Keys
+
+![Database Keys](image-38.png)
+![super key](image-39.png)
+
+> JOINS
+
+- Cross Join
+  ![Cross Join](image-40.png)
+
+- Types of inner join
+
+  - Natural join(no need to specify the condition)
+
+    - ![Natural join](image-41.png)
+
+  - Equi join (condition should be always equal to(=))
+
+    - ![Equi join](image-42.png)
+    - Difference between natural and equi join
+    - ![Diff](image-43.png)
+
+  - Inner join
+    - can specify any condition (<,>)
+
+- Self join
+
+> Functions
+
+- returns a scalar value (string,value,int,table)
