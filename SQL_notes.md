@@ -300,6 +300,9 @@ Group by GROUPING SETS(
 
 > Indexing
 
+- Determines the order of the table
+- increases the speed of retrival of data
+
 ![alt text](image-44.png)
 
 - If the indexing is not done, then we need to search one by one . this process is known as `Table Scan`.

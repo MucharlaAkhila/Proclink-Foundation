@@ -117,7 +117,6 @@ INSERT INTO MovieActors (MovieID, ActorID, Role) VALUES
 
 (9, 8, 'Ammu');
 
-[10:59 AM] Bhanusri Gangadevi
 ------------------------------------------------------------------------------------
 
 --Exercise 1: View for Movies Released After 2015

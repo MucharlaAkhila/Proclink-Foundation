@@ -94,20 +94,38 @@ ON tblEmployee(Gender DESC, Salary ASC)
 
 Select *
 from tblEmployee
- 
 
- -- unique vs non-unique index
 
- -- unique (if indexing is done on unique coloumn then it is unique index)
- -- non-unique (if indexing is done on non-unique coloumn then it is non-unique index)
+-- unique vs non-unique index
 
- ----------------------------------------------------------------------------------------------
+-- unique (if indexing is done on unique coloumn then it is unique index)
+-- non-unique (if indexing is done on non-unique coloumn then it is non-unique index)
 
- -- ACID Properties
- -- A-> Atomicity (both pass or both fail)
- -- C-> consistency (cannot have ghost data)
- -- I-> Isolation (lock the particular rows that are affected)
- -- D-> Durability (in case of failure , do a roll back)
+----------------------------------------------------------------------------------------------
 
- ----------------------------------------------------------------------------------------------
+-- ACID Properties
+-- A-> Atomicity (both pass or both fail)
+-- C-> consistency (cannot have ghost data)
+-- I-> Isolation (lock the particular rows that are affected)
+-- D-> Durability (in case of failure , do a roll back)
 
+----------------------------------------------------------------------------------------------
+
+BEGIN TRANSACTION
+UPDATE Actors
+ set FirstName = 'Prabhas cool'
+ Where ActorID = 11
+
+COMMIT TRANSACTION
+
+Rollback
+
+-- to end a transaction :
+-- 1. we can commit the transaction
+-- 2. we can rollback the transaction
+
+-- Isolation level - Read committed (Default)
+SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+-- we can also read uncommitted data using this 
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED; -- we can read only committed data using this 
+ -------------------------------------------------------------------------------------------------
